@@ -20,7 +20,7 @@ export default class Book extends Component {
                 <div className="book">
                     <div className="book-top">
                         <div className="book-cover" style={{ width: 128, height: 193, 
-                                                             backgroundImage: `url(${this.props.imageLinks.thumbnail})` }}></div>
+                                                             backgroundImage: `url(${this.props.imageLinks && this.props.imageLinks.thumbnail})` }}></div>
                         <div className="book-shelf-changer">
                             <select onChange={this.handleChange} value={this.props.shelf}>
                                 <option value="move" disabled>Move to...</option>
@@ -32,7 +32,7 @@ export default class Book extends Component {
                         </div>
                     </div>
                     <div className="book-title">{this.props.title}</div>
-                    <div className="book-authors">{this.props.authors && this.props.authors[0]}</div>
+                    <div className="book-authors">{this.props.authors ? this.props.authors.join(', ') : 'Author Unknown'}</div>
                 </div>
             </li>
         )
